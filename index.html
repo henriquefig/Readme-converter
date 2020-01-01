@@ -1,0 +1,54 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+         
+
+	<link rel="stylesheet" integrity="" href="bootstrap.css">
+	<link rel="stylesheet" integrity="" href="font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="styles.css">
+
+	<script src="jquery.min.js"></script>
+	<script src="showdown.min.js"></script>
+	<title>README to HTML converter</title>
+	<script src="readme.js"></script>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+	<div id='wrap'>
+
+		<div class='container-fluid' id='header'>
+			<div class='container'>
+				<h3>README to HTML</h3>
+			</div>
+		</div>
+		<div class="container container-main ">
+			<div class="row">
+				<div class="jumbotron">
+					<div class='get_readme form-group'>
+						<label for='markup'>Insert the link for the README.md you want convert to HTML:</label><br>
+						<input id='markup' class='form-control' placeholder="Insert link to readme file..." size="50" value='README.md' />
+						<br><br>
+						<button class='btn btn-sm btn-primary' onclick="converthtml()">Preview</button>
+						<button class='btn btn-sm btn-success' onclick="convertanddownloadhtml()">Download</button>
+						<br><br>
+						<small class='text-danger'><i class='fa fa-exclamation-triangle'></i> If you have local files linked in your .md file, the generated HTML will need to be placed on the same level as the original .md file to make use of the relative paths</small>
+					</div>
+				</div>
+			</div>
+			<div class="row" >
+				<div id="aux" style="display:none"></div>
+				<div id="loadread"></div>
+			</div>
+		</div>
+		<div class='container sticky' id='footer'>
+			<div class='container'>
+				<div class='text-center' >
+					<label style='font-size: 14px;font-weight: normal;'> 2019 Henrique Figueiredo&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="mailto:nf.henrique@gmail.com" style='color:white'>nf.henrique@gmail.com</a>
+					</label>
+                </div>
+            </div> 
+        </div>
+	</div>
+</body>

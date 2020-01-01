@@ -1,0 +1,80 @@
+<title>README</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><body><div style='margin:25px;padding:25px;border:1px solid #e8e5e5;'><h1 id="readme">README</h1>
+<p>HRM dev is the develompent copy of the HRM of Altec-IS.</p>
+<p>If you do not own a markdown viewer please see the html version of this page <a href="https://altec-is.pt/hrm/readme.html">here</a></p>
+<h2 id="installation">Installation</h2>
+<hr />
+<p>Install <strong>Xampp</strong> (or equivalent) in your device of choice. </p>
+<p>You'll need a special configuration for Apache. In the Xampp control panel open this folder:</p>
+<p><img src="xampp.png" alt="Xampp control panel" /></p>
+<hr />
+<p>Inside that folder, open the following file:</p>
+<p><code>conf/extra/httpd-vhosts.conf</code></p>
+<p>Add these lines to the file:</p>
+<pre><code>&lt;VirtualHost *:80&gt;
+    DocumentRoot "C:\Path_to_your_workspace"
+    ServerName localhost
+    ServerAlias *.localhost
+    &lt;Directory "C:\Path_to_your_workspace"&gt;
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre>
+<hr />
+<p>Clone the repo to your desired path through the command (this must be done through a <strong>Linux terminal</strong> or <strong>Git Bash</strong>):</p>
+<p><code>git clone ssh://altecis@altec-is.pt/home/altecis/git.repo/hrm_dev</code></p>
+<hr />
+<p>In your OS of choice, unhide hidden folders:</p>
+<ul>
+<li><p><strong>Windows 10</strong>:</p>
+<ul>
+<li>In the search box on the taskbar, type <strong>folder</strong>, and then select <strong>Show hidden files and folders</strong> from the search results.</li>
+<li>Under <strong>Advanced settings</strong>, select <strong>Show hidden files, folders, and drives</strong>, and then select <strong>OK</strong>.</li></ul></li>
+<li><p><strong>Mac OS</strong>:</p>
+<ul>
+<li>Open a folder and press <strong><code>CMD + .</code></strong> to toggle the hide/unhide of the folders/files</li></ul></li>
+<li><p><strong>Linux</strong>:</p>
+<ul>
+<li>Depends on the distro being used... (<code>ls -a</code> will list the hidden files/foldres on the terminal though)</li></ul></li>
+</ul>
+<hr />
+<p>Open the folder where you've installed the repo and find the folder <code>.git</code>. Inside it you will look for the file <code>.git/info/exclude</code>. Open it with your text editor of choice.</p>
+<p><strong>Note:</strong> Even though <code>exclude</code> file has no extension, it can be opened as a simple text file.</p>
+<p>Add the following lines to the <code>exclude</code> file:</p>
+<pre><code>*.bak.php
+*.bak.ini
+*.bak.htaccess
+files/
+temp/
+logs/
+files_default/
+</code></pre>
+<p>Save the file and your repo is ready!</p>
+<hr />
+<p>Now you need to create the clients management database.</p>
+<p>In your repo root directory, you'll find a file called <code>init.sql</code>.</p>
+<p>Open a MySQL console (in Xampp just click <strong>shell</strong>) login with your <strong>root</strong> user and type:</p>
+<pre><code>CREATE DATABASE hrm_signup;
+quit;
+</code></pre>
+<p>After that type:</p>
+<p><code>mysql -u root -h localhost -D hrm_signup &lt; path_to_the_repo/init.sql</code></p>
+<p><strong>Note:</strong> If you've set a password for your root user, add <code>-p your_password</code> to the command</p>
+<hr />
+<p>Congratulations your HRM installation for local development is now complete!</p>
+<p>You can create your test first client in the <a href="http://localhost/repo_name/signup">Signup Page</a></p>
+<hr />
+<h2 id="contributing">Contributing</h2>
+<hr />
+<p>When contributing to this repo please make sure you do not edit your <code>.git/info/exclude</code>!
+When making commits, please make sure you use the command in this form:</p>
+<p><code>git commit -am "Brief summary of changes"</code></p>
+<p>Remember that when merging to the server version, replace the excluded files with corresponding <code>.bak</code> files.</p>
+<hr />
+<h2 id="specialdevelopmentnotes">Special development notes</h2>
+<hr />
+<p>Please remember to setup the <strong>SMTP server</strong> to <strong>Mailtrap</strong> to avoid email spamming.</p>
+<p>The emails recieved through this application will have incorrect links for local development.
+To correct them make the following changes on a link.</p>
+<p><strong>Example link:</strong></p>
+<p><code>https://domain.altec-is.pt/backoffice</code></p>
+<p><strong>Corrected link:</strong></p>
+<p><code>http://domain.localhost/repo_name/backoffice</code></p></div>

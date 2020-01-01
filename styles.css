@@ -1,0 +1,58 @@
+footer{
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+.container-main{
+    margin-top:90px;
+    opacity:0.95;
+    margin-bottom: 4em;
+}
+#footer{
+    border-top: 3px solid #ff9000e6;
+    color: white;
+    margin-top: -30px;
+    background:black;
+    opacity:0.95;
+    padding:20px 0px;
+    min-height:30px;
+}
+#footer .row{
+    padding: 0px 60px;
+}
+#header{
+    border-bottom: 3px solid #ff9000e6;
+    color: white;
+    background: black;
+    top:0;
+    left:0;
+    position:fixed;
+    width:100%;
+    z-index:999;
+    opacity:0.90;
+    min-height:80px;
+}
+#header h3{
+    margin-top: 32px;
+    float:right;
+    padding-right:60px;
+}
+#header .container{
+    padding-left:60px;
+}
+.sticky{
+    position:fixed;
+    width:100%;
+    bottom:0;
+}
+.get_readme{
+
+    margin:25px;
+    padding:25px;
+}
